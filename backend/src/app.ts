@@ -48,10 +48,18 @@ app.use(express.urlencoded({ extended: true, limit: maxBodySize }));
 // General Rate Limiter on all /api routes
 app.use('/api', generalLimiter);
 
-// Health Check
+// Root and Health Check
+app.get('/', (req, res) => {
+  res.status(200).json({
+    status: 'ok',
+    message: 'TEMPTEXTS backend is running',
+  });
+});
+
 app.get('/api/health', (req, res) => {
   res.status(200).json({
     status: 'ok',
+    message: 'TEMPTEXTS backend is running',
     uptime: process.uptime(),
     timestamp: new Date().toISOString(),
   });
