@@ -20,7 +20,7 @@ app.use(
 );
 
 // CORS setup
-const allowedOrigins = (process.env.CORS_ORIGIN || 'http://localhost:5173,http://localhost:3000')
+const allowedOrigins = (process.env.CORS_ORIGIN || 'https://localhostree.netlify.app,http://localhost:5173,http://localhost:3000')
   .split(',')
   .map((origin) => origin.trim());
 

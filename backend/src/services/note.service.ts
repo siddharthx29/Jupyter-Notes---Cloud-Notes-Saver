@@ -1,8 +1,7 @@
-import { PrismaClient, Note } from '@prisma/client';
+import { Note } from '@prisma/client';
+import { prisma } from '../lib/prisma.js';
 import { generatePublicId } from '../utils/idGenerator.js';
 import { hashPassword, verifyPassword } from '../utils/password.js';
-
-const prisma = new PrismaClient();
 
 export type ExpirationOption = '10m' | '1h' | '6h' | '24h' | '7d' | '30d' | 'never';
 

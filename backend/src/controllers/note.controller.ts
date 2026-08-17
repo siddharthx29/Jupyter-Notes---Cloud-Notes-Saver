@@ -19,7 +19,7 @@ const updateNoteSchema = z.object({
  * Helper to get the full URL for a public note ID.
  */
 function getNoteUrl(req: Request, publicId: string): string {
-  const baseUrl = process.env.BASE_URL || `${req.protocol}://${req.get('host')}`;
+  const baseUrl = process.env.BASE_URL || 'https://localhostree.netlify.app';
   return `${baseUrl}/n/${publicId}`;
 }
 
