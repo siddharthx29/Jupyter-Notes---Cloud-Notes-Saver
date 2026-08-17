@@ -1,6 +1,7 @@
 import { ExpirationOption, NoteData, NoteMetadata } from '../types/note';
 
-const API_BASE = '/api/notes';
+const API_ROOT = (import.meta.env.VITE_API_URL || '').replace(/\/+$/, '');
+const API_BASE = API_ROOT ? `${API_ROOT}/api/notes` : '/api/notes';
 
 export interface ApiError {
   error: string;
