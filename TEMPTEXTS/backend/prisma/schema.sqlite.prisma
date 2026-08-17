@@ -1,0 +1,23 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./test.db"
+}
+
+model Note {
+  id            String    @id @default(uuid())
+  publicId      String    @unique
+  content       String
+  passwordHash  String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  expiresAt     DateTime?
+  downloadCount Int       @default(0)
+  viewCount     Int       @default(0)
+
+  @@index([publicId])
+  @@index([expiresAt])
+}
