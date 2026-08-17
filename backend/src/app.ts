@@ -50,6 +50,17 @@ app.use('/api', generalLimiter);
 
 // Root and Health Check
 app.get('/', (req, res) => {
+  if (req.accepts('html')) {
+    res.status(200).type('html').send(`<!DOCTYPE html>
+<html>
+<head><title>TempNotes API</title></head>
+<body>
+<h1>TempNotes backend is running</h1>
+<p>This is an API-only service. See <a href="/api/health">/api/health</a>.</p>
+</body>
+</html>`);
+    return;
+  }
   res.status(200).json({
     status: 'ok',
     message: 'TEMPTEXTS backend is running',
