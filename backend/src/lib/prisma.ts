@@ -1,21 +1,24 @@
 import { PrismaClient } from '@prisma/client';
 
-const fallbackDbUrl =
-  'postgresql://neondb_owner:npg_cYy8sTSubJr5@ep-steep-rice-az161rc4-pooler.c-3.ap-southeast-1.aws.neon.tech/neondb?sslmode=require&connect_timeout=15';
+const databaseUrl = process.env.DATABASE_URL;
 
-const databaseUrl = process.env.DATABASE_URL || fallbackDbUrl;
+if (!databaseUrl && process.env.NODE_ENV === 'production') {
+  console.error('CRITICAL SECURITY ALERT: DATABASE_URL environment variable is not configured.');
+}
 
 const globalForPrisma = globalThis as unknown as { prisma?: PrismaClient };
 
 export const prisma =
   globalForPrisma.prisma ||
   new PrismaClient({
-    datasources: {
-      db: {
-        url: databaseUrl,
-      },
-    },
-    log: ['error'],
+    datasources: databaseUrl
+      ? {
+          db: {
+            url: databaseUrl,
+          },
+        }
+      : undefined,
+    log: process.env.NODE_ENV === 'development' ? ['query', 'error', 'warn'] : ['error'],
   });
 
 if (process.env.NODE_ENV !== 'production') {
