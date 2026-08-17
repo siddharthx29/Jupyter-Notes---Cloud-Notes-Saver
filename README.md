@@ -1,12 +1,12 @@
 # JupyterNotebook 🪐⚡
 
-**JupyterNotebook** is a fast temporary cloud notepad and code notebook designed for storing, retrieving, editing, and sharing plain text, Python code, symbols, emojis, and whitespace with **100% byte-for-byte exact preservation**.
+**JupyterNotebook** is a fast, temporary cloud notepad and code notebook designed for storing, retrieving, editing, and sharing plain text, Python code, symbols, emojis, and whitespace with **100% byte-for-byte exact preservation**.
 
 ---
 
 ## 1. Project Overview
 
-JupyterNotebook provides a classic Jupyter-style interface combined with temporary cloud storage. Users can type or paste any text or code, pick an expiration time (e.g. 10 minutes to 30 days, or never), optionally lock it with a custom password or 4-digit PIN, choose custom 4-letter codes or generate 4-character random IDs, and instantly share retrieval links (`www.jupyternotebook.com/:code`).
+JupyterNotebook provides a classic Jupyter-style interface combined with temporary cloud storage. Users can type or paste any text or code, pick an expiration time (e.g., 10 minutes to 30 days, or never), optionally lock it with a custom password or 4-digit PIN, choose custom 4-letter codes or generate 4-character random IDs, and instantly share retrieval links (`www.jupyternotebook.com/:code`).
 
 ### Core Principles
 - **Exact Text & Code Preservation**: Zero whitespace trimming, zero tab conversions, zero auto-formatting, and zero character escaping.
