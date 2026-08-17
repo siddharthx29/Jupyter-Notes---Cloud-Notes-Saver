@@ -1,11 +1,15 @@
 {
-  "name": "temptexts-root",
+  "name": "tempnote-workspace",
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "npm run start --prefix TEMPTEXTS",
-    "dev": "npm run dev --prefix TEMPTEXTS",
-    "build": "npm run build --prefix TEMPTEXTS",
-    "test": "npm run test --prefix TEMPTEXTS"
+    "dev": "concurrently \"npm run dev --prefix backend\" \"npm run dev --prefix frontend\"",
+    "build": "npm run build --prefix backend && npm run build --prefix frontend",
+    "test": "npm run test --prefix backend",
+    "prisma:generate": "npm run prisma:generate --prefix backend",
+    "prisma:push": "npm run prisma:push --prefix backend"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
   }
 }

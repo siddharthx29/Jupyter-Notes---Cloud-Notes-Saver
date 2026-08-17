@@ -16,6 +16,7 @@ dist-ssr
 # Environment variables & secrets (CRITICAL for GitHub security)
 .env
 .env.*
+*.env
 !.env.example
 *.pem
 *.key
