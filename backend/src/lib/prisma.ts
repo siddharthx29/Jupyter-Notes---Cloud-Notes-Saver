@@ -1,7 +1,7 @@
 import { PrismaClient } from '@prisma/client';
 
 const fallbackDbUrl =
-  'postgresql://neondb_owner:npg_cYy8sTSubJr5@ep-steep-rice-az161rc4-pooler.c-3.ap-southeast-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require';
+  'postgresql://neondb_owner:npg_cYy8sTSubJr5@ep-steep-rice-az161rc4-pooler.c-3.ap-southeast-1.aws.neon.tech/neondb?sslmode=require&connect_timeout=15';
 
 const databaseUrl = process.env.DATABASE_URL || fallbackDbUrl;
 
